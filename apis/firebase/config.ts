@@ -1,6 +1,6 @@
 import * as firebase from 'firebase/app';
-import 'firebase/auth'; // 認証機能を使用
-import 'firebase/firestore'; // firebaseのデータベースを使用
+import 'firebase/auth';
+import 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
