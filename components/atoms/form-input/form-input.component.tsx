@@ -1,19 +1,23 @@
 import React, { FC } from 'react';
 
-import './form-input.styles.scss';
+import './form-input.module.scss';
 
 interface FormInputProps {
   name?: string;
   label?: string;
   value: string;
   type?: string;
-  handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   required: boolean;
+  error?: boolean;
+  message?: string;
+  handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const FormInput: FC<FormInputProps> = ({
   handleChange,
   label,
+  error,
+  message,
   ...otherProps
 }): JSX.Element => {
   console.log({ ...otherProps });
@@ -28,6 +32,7 @@ const FormInput: FC<FormInputProps> = ({
           {label}
         </label>
       ) : null}
+      {error && message ? <div className="error-message">{message}</div> : null}
     </div>
   );
 };

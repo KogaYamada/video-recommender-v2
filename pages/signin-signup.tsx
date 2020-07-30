@@ -13,9 +13,7 @@ const SigninAndSignup: FC<SigninAndSignupProps> = (): JSX.Element => {
         <title>video Recommender</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="signin-signup">
-        <SigninAndSignupBox />
-      </div>
+      <SigninAndSignupBox />
     </>
   );
 };

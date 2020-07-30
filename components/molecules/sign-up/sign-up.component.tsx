@@ -1,6 +1,9 @@
 import { FC, useState } from 'react';
 
 import FormInput from '../../atoms/form-input/form-input.component';
+import Button from '../../atoms/button/button.component';
+
+import './sign-up.module.scss';
 
 interface SignupProps {}
 
@@ -9,11 +12,17 @@ const SignUp: FC<SignupProps> = (): JSX.Element => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
+    console.log(displayName, email, password, confirmPassword);
+  };
+
   return (
     <div className="sign-up">
-      <h2 className="title">I do not have a account</h2>
-      <span>Sign up with your email and password</span>
-      <form className="sign-up-form">
+      <h2 className="title">Sign Up</h2>
+      <span>アカウントをお持ちでない方</span>
+      <form className="sign-up-form" onSubmit={handleSubmit}>
         <FormInput
           type="text"
           name="displayName"
@@ -21,7 +30,7 @@ const SignUp: FC<SignupProps> = (): JSX.Element => {
           handleChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             setDisplayName(e.target.value);
           }}
-          label="Display Name"
+          label="User Name"
           required
         />
         <FormInput
@@ -54,6 +63,7 @@ const SignUp: FC<SignupProps> = (): JSX.Element => {
           label="Confirm Password"
           required
         />
+        <Button type="submit">Sign Up</Button>
       </form>
     </div>
   );

@@ -1,7 +1,8 @@
 import React, { FC, useState } from 'react';
 import FormInput from '../../atoms/form-input/form-input.component';
+import Button from '../../atoms/button/button.component';
 
-import './sign-in.styles.scss';
+import './sign-in.module.scss';
 
 interface SigninProps {}
 
@@ -9,11 +10,16 @@ const SignIn: FC<SigninProps> = (): JSX.Element => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
+    console.log(email, password);
+  };
+
   return (
     <div className="sign-in">
-      <h2>I aleady have an account</h2>
-      <span>Sign in with your email and password</span>
-      <form>
+      <h2>Sign In</h2>
+      <span>アカウントをお持ちの方</span>
+      <form onSubmit={handleSubmit}>
         <FormInput
           name="email"
           type="email"
@@ -34,7 +40,7 @@ const SignIn: FC<SigninProps> = (): JSX.Element => {
           label="password"
           required
         />
-        <div className="buttons"></div>
+        <Button type="submit">Sign In</Button>
       </form>
     </div>
   );
