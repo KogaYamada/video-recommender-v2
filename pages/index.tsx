@@ -1,19 +1,23 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import styles from '../styles/Home.module.css';
+import '../styles/pages/home.module.scss';
 import { FC } from 'react';
 
 interface HomeProps {}
 
 const Home: FC<HomeProps> = (): JSX.Element => {
   return (
-    <div>
+    <>
       <Head>
-        <title>vevox values card</title>
+        <title>video Recommender</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>video recoomender</main>
-    </div>
+      <main className="st">
+        <Link href="/signin-signup">
+          <a>ログイン・サインアップ</a>
+        </Link>
+      </main>
+    </>
   );
 };
 

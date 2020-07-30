@@ -8,11 +8,15 @@
     "start": "next start"
   },
   "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
     "arrayy": "^1.0.2",
+    "axios": "^0.19.2",
     "firebase": "^7.17.1",
     "next": "9.5.0",
+    "node-sass": "^4.14.1",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "react-hook-form": "^6.1.2"
   },
   "devDependencies": {
     "@types/node": "^14.0.27",
