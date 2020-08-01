@@ -3,7 +3,7 @@ import { FC, useState } from 'react';
 import FormInput from '../../atoms/form-input/form-input.component';
 import Button from '../../atoms/button/button.component';
 
-import './sign-up.module.scss';
+import './sign-up.styles.scss';
 
 interface SignupProps {}
 

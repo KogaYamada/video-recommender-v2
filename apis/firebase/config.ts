@@ -1,4 +1,4 @@
-import * as firebase from 'firebase/app';
+import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 
@@ -19,4 +19,37 @@ firebase.initializeApp(firebaseConfig);
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
-export default firebase;
+export const createUserProfileDocument = async (
+  userAuth: firebase.User,
+  addtionaldata?: any
+) => {
+  if (!userAuth) return;
+
+  const userRef: firebase.firestore.DocumentReference<firebase.firestore.DocumentData> = firestore.doc(
+    `version/2/users/${userAuth.uid}`
+  );
+
+  const snapshot: firebase.firestore.DocumentSnapshot<firebase.firestore.DocumentData> = await userRef.get();
+
+  if (!snapshot.exists) {
+    const { displayName, email, uid, photoURL } = userAuth;
+    const createdAt: Date = new Date();
+
+    try {
+      userRef.set({
+        displayName,
+        email,
+        uid,
+        photoURL,
+        createdAt,
+        ...addtionaldata,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  return userRef;
+};
+
+// export default firebase;

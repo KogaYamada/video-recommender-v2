@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import './form-input.module.scss';
+import './form-input.styles.scss';
 
 interface FormInputProps {
   name?: string;
@@ -20,7 +20,6 @@ const FormInput: FC<FormInputProps> = ({
   message,
   ...otherProps
 }): JSX.Element => {
-  console.log({ ...otherProps });
   return (
     <div className="group">
       <input className="form-input" onChange={handleChange} {...otherProps} />

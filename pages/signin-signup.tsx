@@ -2,7 +2,7 @@ import { FC } from 'react';
 import Head from 'next/head';
 
 import SigninAndSignupBox from '../components/organisms/signin-signup-box/signin-signup-box.component';
-import '../styles/pages/signin-signup.module.scss';
+import '../styles/pages/signin-signup.styles.scss';
 
 interface SigninAndSignupProps {}
 

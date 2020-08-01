@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import SignIn from '../../molecules/sign-in/sign-in.components';
 import SignUp from '../../molecules/sign-up/sign-up.component';
-import './signin-signup-box.module.scss';
+import './signin-signup-box.styles.scss';
 
 interface SigninAndSignupBoxProps {}
 

@@ -1,19 +1,22 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useContext } from 'react';
+import { Context as AuthContext } from '../../../context/AuthContext';
 import FormInput from '../../atoms/form-input/form-input.component';
 import Button from '../../atoms/button/button.component';
 
-import './sign-in.module.scss';
+import './sign-in.styles.scss';
 
 interface SigninProps {}
 
 const SignIn: FC<SigninProps> = (): JSX.Element => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { state, signin } = useContext(AuthContext);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    console.log(email, password);
+    // signin(email, password);
   };
+  console.log(state);
 
   return (
     <div className="sign-in">

@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import '../styles/pages/home.module.scss';
+import '../styles/pages/home.styles.scss';
 import { FC } from 'react';
 
 interface HomeProps {}

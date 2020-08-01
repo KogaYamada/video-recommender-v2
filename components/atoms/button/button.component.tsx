@@ -1,25 +1,20 @@
 import { FC } from 'react';
 
-import './button.module.scss';
-
-type button = 'button' | 'submit' | 'reset';
-type color = 'black' | 'white';
-type size = 'small' | 'medium' | 'large';
+import './button.styles.scss';
 
 interface ButtonBlackProps {
-  type: button;
-  color?: color;
-  size?: size;
+  type: 'button' | 'submit' | 'reset';
+  color?: 'black' | 'white';
+  size?: 'small' | 'medium' | 'large';
   onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
 }
 
-const ButtonBlack: FC<ButtonBlackProps> = ({
+const Button: FC<ButtonBlackProps> = ({
   type,
   color = 'black',
   size = 'medium',
   children,
 }): JSX.Element => {
-  console.log(color);
   return (
     <button className={`base ${size} ${color}`} type={type}>
       {children}
@@ -27,4 +22,4 @@ const ButtonBlack: FC<ButtonBlackProps> = ({
   );
 };
 
-export default ButtonBlack;
+export default Button;
