@@ -1,0 +1,21 @@
+import { FC } from 'react';
+import Head from 'next/head';
+
+import SigninAndSignupBox from '../components/organisms/signin-signup-box/signin-signup-box.component';
+import '../styles/pages/signin-signup.styles.scss';
+
+interface SigninAndSignupProps {}
+
+const SigninAndSignup: FC<SigninAndSignupProps> = (): JSX.Element => {
+  return (
+    <>
+      <Head>
+        <title>video Recommender</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <SigninAndSignupBox />
+    </>
+  );
+};
+
+export default SigninAndSignup;
