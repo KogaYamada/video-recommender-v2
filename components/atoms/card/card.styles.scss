@@ -1,0 +1,8 @@
+@import '../../../styles//lib.scss';
+
+.card-container {
+  border: 1px solid $accents-2;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 5px 10px 0px;
+}

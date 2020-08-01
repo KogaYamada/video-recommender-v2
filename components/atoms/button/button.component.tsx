@@ -4,7 +4,7 @@ import './button.styles.scss';
 
 interface ButtonBlackProps {
   type: 'button' | 'submit' | 'reset';
-  color?: 'black' | 'white';
+  color?: 'black' | 'white' | 'red' | 'blue';
   size?: 'small' | 'medium' | 'large';
   onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
 }
