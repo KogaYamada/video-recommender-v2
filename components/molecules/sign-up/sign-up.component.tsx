@@ -1,4 +1,7 @@
-import { FC, useState } from 'react';
+import { FC, useState, useContext } from 'react';
+import { Context as AuthContext } from '../../../context/AuthContext';
+
+import { signupValidation } from '../../../modules/auth-validation';
 
 import FormInput from '../../atoms/form-input/form-input.component';
 import Button from '../../atoms/button/button.component';
@@ -12,10 +15,24 @@ const SignUp: FC<SignupProps> = (): JSX.Element => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-
+  const { state, signup, signout, addAuthError, refreshAuthError } = useContext(
+    AuthContext
+  );
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    console.log(displayName, email, password, confirmPassword);
+    refreshAuthError();
+    if (
+      signupValidation(
+        { displayName, email, password, confirmPassword },
+        addAuthError
+      )
+    ) {
+      signup(displayName, email, password);
+      setDisplayName('');
+      setEmail('');
+      setPassword('');
+      setConfirmPassword('');
+    }
   };
 
   return (
@@ -64,6 +81,9 @@ const SignUp: FC<SignupProps> = (): JSX.Element => {
           required
         />
         <Button type="submit">Sign Up</Button>
+        <Button type="button" onClick={signout}>
+          Sign Out
+        </Button>
       </form>
     </div>
   );

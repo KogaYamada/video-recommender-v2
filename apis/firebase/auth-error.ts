@@ -1,8 +1,9 @@
-enum AuthErrorCodeTypes {
-  email = 'email',
-  password = 'password',
-  other = 'other',
-}
+type AuthErrorCodeTypes =
+  | 'displayName'
+  | 'email'
+  | 'password'
+  | 'confirm'
+  | 'other';
 
 export interface AuthError {
   type: AuthErrorCodeTypes;
@@ -19,27 +20,27 @@ const AuthErrorCodeToMessage = (errorCode: string): AuthError => {
   switch (errorCode) {
     case 'auth/email-already-in-use':
       return {
-        type: AuthErrorCodeTypes.email,
+        type: 'email',
         message: 'このメールアドレスは既に登録されています。',
       };
     case 'auth/invalid-email':
       return {
-        type: AuthErrorCodeTypes.email,
+        type: 'email',
         message: '入力されたメールアドレスの形式が不正です。',
       };
     case 'auth/user-not-found':
       return {
-        type: AuthErrorCodeTypes.email,
+        type: 'email',
         message: 'このメールアドレスは登録されていません。',
       };
     case 'auth/wrong-password':
       return {
-        type: AuthErrorCodeTypes.password,
+        type: 'password',
         message: 'パスワードが間違っています。',
       };
     default:
       return {
-        type: AuthErrorCodeTypes.other,
+        type: 'other',
         message:
           'エラーが発生しました。入力内容をご確認のうえ、もう一度お試しください。',
       };

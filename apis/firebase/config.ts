@@ -10,11 +10,13 @@ const firebaseConfig = {
   projectId: 'videorecommender-43c5b',
   storageBucket: 'videorecommender-43c5b.appspot.com',
   messagingSenderId: '373392465529',
-  appId: '1:373392465529:web:d0af2e7879d32412bbbea8',
-  measurementId: 'G-5TGC0C8HDG',
+  appId: '1:373392465529:web:baede9cc96eae8a7bbbea8',
+  measurementId: 'G-9H3BBD8DDT',
 };
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();

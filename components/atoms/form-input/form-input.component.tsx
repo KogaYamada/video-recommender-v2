@@ -7,7 +7,7 @@ interface FormInputProps {
   label?: string;
   value: string;
   type?: string;
-  required: boolean;
+  required?: boolean;
   error?: boolean;
   message?: string;
   handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;

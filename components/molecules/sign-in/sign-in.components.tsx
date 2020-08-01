@@ -1,7 +1,13 @@
 import React, { FC, useState, useContext } from 'react';
+
 import { Context as AuthContext } from '../../../context/AuthContext';
 import FormInput from '../../atoms/form-input/form-input.component';
 import Button from '../../atoms/button/button.component';
+
+import {
+  signinValidation,
+  makeFormError,
+} from '../../../modules/auth-validation';
 
 import './sign-in.styles.scss';
 
@@ -10,13 +16,17 @@ interface SigninProps {}
 const SignIn: FC<SigninProps> = (): JSX.Element => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { state, signin } = useContext(AuthContext);
+  const { state, signin, addAuthError, refreshAuthError } = useContext(
+    AuthContext
+  );
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    // signin(email, password);
+    refreshAuthError();
+    if (signinValidation({ email, password }, addAuthError)) {
+      signin(email, password);
+    }
   };
-  console.log(state);
 
   return (
     <div className="sign-in">
@@ -31,7 +41,7 @@ const SignIn: FC<SigninProps> = (): JSX.Element => {
             setEmail(e.target.value);
           }}
           label="email"
-          required
+          {...makeFormError('email', state.errors)}
         />
         <FormInput
           name="password"
@@ -41,7 +51,7 @@ const SignIn: FC<SigninProps> = (): JSX.Element => {
             setPassword(e.target.value);
           }}
           label="password"
-          required
+          {...makeFormError('password', state.errors)}
         />
         <Button type="submit">Sign In</Button>
       </form>

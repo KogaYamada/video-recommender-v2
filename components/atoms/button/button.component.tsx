@@ -13,10 +13,11 @@ const Button: FC<ButtonBlackProps> = ({
   type,
   color = 'black',
   size = 'medium',
+  onClick,
   children,
 }): JSX.Element => {
   return (
-    <button className={`base ${size} ${color}`} type={type}>
+    <button onClick={onClick} className={`base ${size} ${color}`} type={type}>
       {children}
     </button>
   );
