@@ -2,14 +2,14 @@ import { FC } from 'react';
 
 import './button.styles.scss';
 
-interface ButtonBlackProps {
+interface ButtonProps {
   type: 'button' | 'submit' | 'reset';
   color?: 'black' | 'white' | 'red' | 'blue';
   size?: 'small' | 'medium' | 'large';
   onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
 }
 
-const Button: FC<ButtonBlackProps> = ({
+const Button: FC<ButtonProps> = ({
   type,
   color = 'black',
   size = 'medium',
