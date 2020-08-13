@@ -7,6 +7,10 @@
   border: 1px solid;
 }
 
+%button-transition {
+  transition: all 0.2s ease;
+}
+
 //------[ size ]-----//
 .small {
   width: 70px;
@@ -26,52 +30,52 @@
 //------[ color ]-----//
 
 .black {
+  @extend %button-transition;
   background-color: black;
   color: white;
   border-color: black;
-  transition: all 0.2s ease;
   &:hover {
+    @extend %button-transition;
     background-color: white;
     color: black;
-    transition: all 0.2s ease;
   }
 }
 
 .white {
+  @extend %button-transition;
   background-color: white;
   color: gray;
   border-color: #dddddd;
-  transition: all 0.2s ease;
   &:hover {
+    @extend %button-transition;
     background-color: white;
     border-color: black;
     color: black;
-    transition: all 0.2s ease;
   }
 }
 
 .red {
+  @extend %button-transition;
   background-color: $button-red;
   color: white;
   border-color: $button-red;
-  transition: all 0.2s ease;
   &:hover {
+    @extend %button-transition;
     background-color: white;
     border-color: $button-red;
     color: $button-red;
-    transition: all 0.2s ease;
   }
 }
 
 .blue {
+  @extend %button-transition;
   background-color: $button-blue;
   color: white;
   border-color: $button-blue;
-  transition: all 0.2s ease;
   &:hover {
+    @extend %button-transition;
     background-color: white;
     border-color: $button-blue;
     color: $button-blue;
-    transition: all 0.2s ease;
   }
 }

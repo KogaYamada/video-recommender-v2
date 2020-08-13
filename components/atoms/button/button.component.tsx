@@ -6,7 +6,7 @@ interface ButtonProps {
   type: 'button' | 'submit' | 'reset';
   color?: 'black' | 'white' | 'red' | 'blue';
   size?: 'small' | 'medium' | 'large';
-  onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const Button: FC<ButtonProps> = ({
