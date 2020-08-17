@@ -4,14 +4,14 @@ import 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: 'AIzaSyDDyF0NO4t8m6JWRVpJboimZT8i7_uPe-w',
-  authDomain: 'videorecommender-43c5b.firebaseapp.com',
-  databaseURL: 'https://videorecommender-43c5b.firebaseio.com',
-  projectId: 'videorecommender-43c5b',
-  storageBucket: 'videorecommender-43c5b.appspot.com',
-  messagingSenderId: '373392465529',
-  appId: '1:373392465529:web:baede9cc96eae8a7bbbea8',
-  measurementId: 'G-9H3BBD8DDT',
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DMAIN,
+  databaseURL: process.env.REACT_APP_DATABASE_URL,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 };
 // Initialize Firebase
 if (!firebase.apps.length) {
