@@ -1,10 +1,11 @@
 import React from 'react';
-import SigninAndSignup from './components/pages/signin-signup/signin-signup';
+
+import FormInput from './components/atoms/input';
 
 const App = () => {
   return (
     <>
-      <SigninAndSignup />
+      <FormInput name="app" label="app" />
     </>
   );
 };

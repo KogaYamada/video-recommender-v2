@@ -1,15 +1,15 @@
 import React, { FC } from 'react';
 
-import './form-input.styles.scss';
+import './input.styles.scss';
 
 interface FormInputProps {
-  name?: string;
+  name: string;
   label?: string;
-  value: string;
+  defaultValue?: string;
+  value?: string;
   type?: string;
-  required?: boolean;
   error?: boolean;
-  message?: string;
+  ref?: any;
   handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -17,21 +17,26 @@ const FormInput: FC<FormInputProps> = ({
   handleChange,
   label,
   error,
-  message,
-  ...otherProps
+  name,
+  value,
+  ref,
+  type,
 }): JSX.Element => {
   return (
     <div className="group">
-      <input className="form-input" onChange={handleChange} {...otherProps} />
+      <input
+        className="form-input"
+        onChange={handleChange}
+        value={value}
+        type={type}
+        name={name}
+        ref={ref}
+      />
       {label ? (
-        <label
-          className={`${
-            otherProps.value.length ? 'shrink' : ''
-          } form-input-label`}>
+        <label className={`${value?.length ? 'shrink' : ''} form-input-label`}>
           {label}
         </label>
       ) : null}
-      {error && message ? <div className="error-message">{message}</div> : null}
     </div>
   );
 };
