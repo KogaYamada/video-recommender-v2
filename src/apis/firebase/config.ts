@@ -54,4 +54,4 @@ export const createUserProfileDocument = async (
   return userRef;
 };
 
-// export default firebase;
+export default firebase;
